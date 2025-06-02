@@ -36,3 +36,29 @@ tensorboard --logdir logs
 # How the code is organized
 
 All experiments are inside the folder `isaaclab_experiments`, take a look at the folder `go1_low_level` with an example of the possible parts.
+
+# Justfile
+
+We included a Justfile for running the train and play commands for the available environments.
+
+**Install justfile utility**: https://github.com/casey/just
+
+**Setup autocomplete**: 
+
+```
+echo 'source <(just --completions bash)' >> ~/.bashrc
+source ~/.bashrc
+```
+
+
+Now you can enjoy autocompletions: 
+```
+just train<tab> 
+ ```
+```
+```
+
+If you add a new environment, regenerate the justfile:
+```
+just generate_envs
+```
