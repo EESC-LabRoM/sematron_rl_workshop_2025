@@ -8,7 +8,8 @@ from isaaclab.utils import configclass
 from isaaclab_experiments.go1_low_level.configs.scene import MySceneCfg
 from isaaclab_experiments.go1_low_level.configs.rewards import RewardsCfg
 from isaaclab_experiments.go1_low_level.configs.observation import ObservationsCfg
-from isaaclab_experiments.go1_low_level.configs.command import CommandsCfg, ActionsCfg
+from isaaclab_experiments.go1_low_level.configs.actions import ActionsCfg
+from isaaclab_experiments.go1_low_level.configs.command import CommandsCfg
 from isaaclab_experiments.go1_low_level.configs.termination import TerminationsCfg
 from isaaclab_experiments.go1_low_level.configs.events import EventCfg
 
