@@ -14,34 +14,34 @@ class RewardsCfg:
     # -- task
     track_lin_vel_xy_exp = RewTerm(
         func=mdp.track_lin_vel_xy_exp,
-        weight=1.5,
+        weight=,
         params={"command_name": "base_velocity", "std": math.sqrt(0.25)},
     )
 
     track_ang_vel_z_exp = RewTerm(
         func=mdp.track_ang_vel_z_exp,
-        weight=0.75,
+        weight=,
         params={"command_name": "base_velocity", "std": math.sqrt(0.25)},
     )
 
     # -- penalties
-    lin_vel_z_l2 = RewTerm(func=mdp.lin_vel_z_l2, weight=-0.5)
-    ang_vel_xy_l2 = RewTerm(func=mdp.ang_vel_xy_l2, weight=-0.05)
-    dof_torques_l2 = RewTerm(func=mdp.joint_torques_l2, weight=-0.0002)
-    dof_acc_l2 = RewTerm(func=mdp.joint_acc_l2, weight=-2.5e-7)
-    action_rate_l2 = RewTerm(func=mdp.action_rate_l2, weight=-0.01)
-    terminated = RewTerm(func=mdp.is_terminated, weight=-5)
+    lin_vel_z_l2 = RewTerm(func=mdp.lin_vel_z_l2, weight=)
+    ang_vel_xy_l2 = RewTerm(func=mdp.ang_vel_xy_l2, weight=)
+    dof_torques_l2 = RewTerm(func=mdp.joint_torques_l2, weight=)
+    dof_acc_l2 = RewTerm(func=mdp.joint_acc_l2, weight=)
+    action_rate_l2 = RewTerm(func=mdp.action_rate_l2, weight=)
+    terminated = RewTerm(func=mdp.is_terminated, weight=)
 
     # -- optional penalties
-    flat_orientation_l2 = RewTerm(func=mdp.flat_orientation_l2, weight=0.0)
-    dof_pos_limits = RewTerm(func=mdp.joint_pos_limits, weight=-1)
-    dof_pos_deviation = RewTerm(func=mdp.joint_deviation_l1, weight=-0.05)
-    dof_torque_limit = RewTerm(func=mdp.applied_torque_limits, weight=-1.0)
+    flat_orientation_l2 = RewTerm(func=mdp.flat_orientation_l2, weight)
+    dof_pos_limits = RewTerm(func=mdp.joint_pos_limits, weight=)
+    dof_pos_deviation = RewTerm(func=mdp.joint_deviation_l1, weight=)
+    dof_torque_limit = RewTerm(func=mdp.applied_torque_limits, weight=)
 
     # footswing height tracking
     footswing = RewTerm(
         func=go1_mdp.FootClearenceReward,
-        weight=-200,
+        weight=,
         params={
             "target_height": 0.08,
             "asset_cfg": SceneEntityCfg(
