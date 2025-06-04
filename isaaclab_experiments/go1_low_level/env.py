@@ -5,7 +5,7 @@
 
 from isaaclab.envs import ManagerBasedRLEnvCfg
 from isaaclab.utils import configclass
-from isaaclab_experiments.go1_low_level.configs.scene import MySceneCfg, CurriculumCfg
+from isaaclab_experiments.go1_low_level.configs.scene import MySceneCfg
 from isaaclab_experiments.go1_low_level.configs.rewards import RewardsCfg
 from isaaclab_experiments.go1_low_level.configs.observation import ObservationsCfg
 from isaaclab_experiments.go1_low_level.configs.command import CommandsCfg, ActionsCfg
@@ -27,18 +27,17 @@ class UnitreeGo1RoughEnvCfg(ManagerBasedRLEnvCfg):
     rewards: RewardsCfg = RewardsCfg()
     terminations: TerminationsCfg = TerminationsCfg()
     events: EventCfg = EventCfg()
-    curriculum: CurriculumCfg = CurriculumCfg()
 
     def __post_init__(self):
         """Post initialization."""
         # general settings
         self.decimation = 4
         self.episode_length_s = 20.0
-        
+
         # simulation settings
         self.sim.dt = 0.005
         self.sim.render_interval = self.decimation
-        
+
         # update sensor update periods
         # we tick all the sensors based on the smallest update period (physics update period)
         self.scene.contact_forces.update_period = self.sim.dt

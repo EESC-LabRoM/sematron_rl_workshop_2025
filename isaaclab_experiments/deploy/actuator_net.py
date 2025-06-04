@@ -4,7 +4,7 @@ from collections import deque
 from dataclasses import dataclass
 from typing import Iterable, List, Literal, Optional, Sequence
 
-import torch 
+import torch
 import numpy as np
 
 DEFAULT_POSE = {
@@ -131,7 +131,9 @@ class ActuatorNetMLP:
         # move history queue by 1 and update top of history
         # -- positions
         self._joint_pos_error_history = self._joint_pos_error_history.roll(1, 1)
-        self._joint_pos_error_history[:, 0] = torch.tensor(control_positions - joint_pos)
+        self._joint_pos_error_history[:, 0] = torch.tensor(
+            control_positions - joint_pos
+        )
         # -- velocity
         self._joint_vel_history = self._joint_vel_history.roll(1, 1)
         self._joint_vel_history[:, 0] = torch.tensor(joint_vel)
@@ -174,4 +176,5 @@ class ActuatorNetMLP:
 
         self.computed_effort = torques.view(1, self.num_joints) * self.cfg.torque_scale
 
-        return self.computed_effort 
+        return self.computed_effort
+
